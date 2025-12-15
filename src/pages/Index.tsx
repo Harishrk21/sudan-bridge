@@ -1,13 +1,330 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import { Link } from 'react-router-dom';
+import {
+  Building2,
+  Heart,
+  GraduationCap,
+  FileText,
+  Shield,
+  Clock,
+  Users,
+  CheckCircle2,
+  ArrowRight,
+  Globe,
+  Stethoscope,
+  MessageCircle,
+  BarChart3,
+  Sparkles,
+  Zap,
+  Lock,
+  Brain,
+  Star,
+  Plane,
+} from 'lucide-react';
+import Layout from '@/components/layout/Layout';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import SectionHeading from '@/components/ui/SectionHeading';
+import ServiceCard from '@/components/ui/ServiceCard';
+import StatCard from '@/components/ui/StatCard';
 
-const Index = () => {
+const Index: React.FC = () => {
+  const services = [
+    {
+      icon: Stethoscope,
+      title: 'Medical Treatment',
+      description: 'Connect with India\'s top hospitals for specialized treatments, surgeries, and consultations at affordable prices.',
+      features: ['50+ Partner Hospitals', 'All Specializations', 'Complete Care Coordination'],
+      href: '/medical',
+      featured: true,
+    },
+    {
+      icon: GraduationCap,
+      title: 'Academic Admissions',
+      description: 'Seamless university admissions to India\'s premier institutions with full documentation support.',
+      features: ['30+ Partner Universities', 'Scholarship Guidance', 'Visa Assistance'],
+      href: '/academic',
+      featured: true,
+    },
+    {
+      icon: Plane,
+      title: 'Visitor Services',
+      description: 'Comprehensive travel assistance for visitors including visa processing and accommodation arrangements.',
+      features: ['Visa Processing', 'Travel Planning', 'Local Support'],
+      href: '/services',
+    },
+    {
+      icon: FileText,
+      title: 'Document Management',
+      description: 'Secure document vault with end-to-end encryption for all your medical and academic documents.',
+      features: ['Encrypted Storage', 'Easy Sharing', 'Real-time Access'],
+      href: '/services',
+    },
+    {
+      icon: Shield,
+      title: 'Secure Payments',
+      description: 'Multiple payment options including Mobile Money, Bank Cards, and Bank Transfers.',
+      features: ['Mobile Money', 'Bank Cards', 'Secure Processing'],
+      href: '/services',
+    },
+    {
+      icon: MessageCircle,
+      title: '24/7 Support',
+      description: 'Round-the-clock customer support with real-time chat in Arabic and English.',
+      features: ['Arabic Support', 'Live Chat', 'Case Updates'],
+      href: '/contact',
+    },
+  ];
+
+  const stats = [
+    { value: '500+', label: 'Successful Cases', icon: CheckCircle2 },
+    { value: '50+', label: 'Partner Hospitals', icon: Building2 },
+    { value: '30+', label: 'Partner Universities', icon: GraduationCap },
+    { value: '24/7', label: 'Support Available', icon: Clock },
+  ];
+
+  const features = [
+    { icon: Lock, text: 'End-to-End Encryption' },
+    { icon: Brain, text: 'AI-Powered Processing' },
+    { icon: Globe, text: 'Multi-language Support' },
+    { icon: Zap, text: 'Fast & Secure' },
+    { icon: BarChart3, text: 'Real-time Tracking' },
+    { icon: Shield, text: 'Secure Cloud Storage' },
+  ];
+
+  const testimonials = [
+    {
+      name: 'Ahmed Hassan',
+      role: 'Medical Patient',
+      content: 'SudInd helped me get cardiac surgery in India. The entire process was smooth and the team was incredibly supportive.',
+      rating: 5,
+    },
+    {
+      name: 'Fatima Ali',
+      role: 'Medical Student',
+      content: 'I got admission to a top medical college through SudInd. Their guidance throughout the process was invaluable.',
+      rating: 5,
+    },
+    {
+      name: 'Omar Mohamed',
+      role: 'Parent',
+      content: 'My son received excellent treatment for his condition. SudInd\'s coordination between Sudan and India was flawless.',
+      rating: 5,
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <Layout>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden gradient-hero py-20 sm:py-28 lg:py-36">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50" />
+        
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-2 text-sm text-primary-foreground backdrop-blur-sm animate-fade-in">
+              <Sparkles className="h-4 w-4" />
+              <span>Connecting Sudan to India's Best Healthcare & Education</span>
+            </div>
+            
+            <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl animate-slide-up">
+              بوابتك إلى
+              <span className="block mt-2">
+                Quality Healthcare & Education
+              </span>
+            </h1>
+            
+            <p className="mb-8 text-lg text-primary-foreground/90 sm:text-xl md:text-2xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
+              SudInd Smart Portal connects patients, students, and visitors from Sudan to India's premier hospitals and universities with seamless coordination and support.
+            </p>
+
+            <div className="mb-10 flex flex-wrap items-center justify-center gap-4 text-sm text-primary-foreground/80 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              {features.slice(0, 4).map((feature, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  <feature.icon className="h-4 w-4" />
+                  <span>{feature.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center animate-scale-in" style={{ animationDelay: '0.3s' }}>
+              <Button size="lg" variant="secondary" className="text-lg px-8" asChild>
+                <Link to="/medical">
+                  <Stethoscope className="mr-2 h-5 w-5" />
+                  Medical Services
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="text-lg px-8 bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20" asChild>
+                <Link to="/academic">
+                  <GraduationCap className="mr-2 h-5 w-5" />
+                  Academic Admissions
+                </Link>
+              </Button>
+            </div>
+
+            <p className="mt-6 text-sm text-primary-foreground/70 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              Already have an account?{' '}
+              <Link to="/login" className="font-medium text-primary-foreground underline hover:no-underline">
+                Sign in here
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="border-b bg-card py-12 lg:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+            {stats.map((stat, index) => (
+              <StatCard key={index} {...stat} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Who We Are"
+            title="Your Trusted Bridge Between Sudan & India"
+            subtitle="SudInd Smart Portal is an integrated digital platform that bridges the gap between Sudan and India, facilitating seamless connections for medical treatments, academic admissions, and professional services."
+          />
+          
+          <div className="grid gap-8 md:grid-cols-3">
+            <Card className="hover-lift">
+              <CardContent className="p-6 text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                  <Building2 className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold">المكتب الرئيسي - السودان</h3>
+                <p className="text-sm text-muted-foreground">
+                  Centralized administration and client coordination in Khartoum
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="hover-lift">
+              <CardContent className="p-6 text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary/20">
+                  <Users className="h-8 w-8 text-secondary" />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold">India Network</h3>
+                <p className="text-sm text-muted-foreground">
+                  Local coordinators and medical/academic experts across India
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="hover-lift">
+              <CardContent className="p-6 text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                  <Heart className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold">عملاؤنا</h3>
+                <p className="text-sm text-muted-foreground">
+                  Patients, students, and visitors we proudly serve
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 lg:py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Our Services"
+            title="خدماتنا الشاملة"
+            subtitle="Comprehensive solutions for your medical, academic, and travel needs - from initial consultation to successful completion."
+          />
+          
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <ServiceCard key={index} {...service} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Why SudInd?"
+            title="لماذا تختارنا؟"
+            subtitle="Advanced technology and dedicated support to make your journey seamless"
+          />
+          
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature, index) => (
+              <div key={index} className="flex items-center gap-4 rounded-xl border bg-card p-5 hover-lift">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <feature.icon className="h-6 w-6 text-primary" />
+                </div>
+                <span className="font-medium text-foreground">{feature.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 lg:py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Success Stories"
+            title="قصص نجاح عملائنا"
+            subtitle="Hear from patients and students who achieved their goals with SudInd"
+          />
+          
+          <div className="grid gap-6 md:grid-cols-3">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="hover-lift">
+                <CardContent className="p-6">
+                  <div className="mb-4 flex gap-1">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
+                    ))}
+                  </div>
+                  <p className="mb-4 text-muted-foreground italic">"{testimonial.content}"</p>
+                  <div>
+                    <p className="font-semibold text-foreground">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="gradient-hero py-20 lg:py-28">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl lg:text-5xl">
+              ابدأ رحلتك اليوم
+            </h2>
+            <p className="mb-8 text-lg text-primary-foreground/90">
+              Join hundreds of satisfied clients who trust SudInd for their medical and academic needs. Your journey to India starts here.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <Button size="lg" variant="secondary" className="text-lg px-8" asChild>
+                <Link to="/contact">
+                  Contact Us
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="text-lg px-8 bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20" asChild>
+                <Link to="/register">Create Account</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Layout>
   );
 };
 
