@@ -66,8 +66,8 @@ const Contact: React.FC = () => {
       icon: Mail,
       title: showSudanese ? 'البريد الإلكتروني' : 'Email',
       subtitle: 'Email',
-      value: 'support@sudind.com',
-      link: 'mailto:support@sudind.com',
+      value: 'healthcare@sudaind.com',
+      link: 'mailto:healthcare@sudaind.com',
     },
     {
       icon: Phone,
@@ -75,13 +75,6 @@ const Contact: React.FC = () => {
       subtitle: 'Phone (Sudan)',
       value: '+249 11 246 0791',
       link: 'tel:+249112460791',
-    },
-    {
-      icon: Phone,
-      title: showSudanese ? 'الهاتف' : 'Phone',
-      subtitle: 'Phone (India)',
-      value: '+91 98765 43210',
-      link: 'tel:+919876543210',
     },
     {
       icon: MessageCircle,
@@ -158,7 +151,7 @@ const Contact: React.FC = () => {
       {/* Contact Info Cards */}
       <section className="border-b bg-card py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6 max-w-4xl mx-auto">
             {contactInfo.map((info, index) => (
               <a
                 key={index}

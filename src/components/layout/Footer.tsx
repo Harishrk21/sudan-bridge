@@ -102,11 +102,11 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="mailto:support@sudind.com"
+                    href="mailto:healthcare@sudaind.com"
                     className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Mail className="h-4 w-4 flex-shrink-0" />
-                    support@sudind.com
+                    healthcare@sudaind.com
                   </a>
                 </li>
                 <li>
