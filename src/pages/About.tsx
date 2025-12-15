@@ -86,6 +86,7 @@ const About: React.FC = () => {
     { year: '2022', event: 'Launched academic services' },
     { year: '2023', event: '500+ clients served' },
     { year: '2024', event: 'Digital platform launched' },
+    { year: '2025', event: 'Expanded partner network & AI integration' },
   ];
 
   return (
