@@ -11,10 +11,10 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Default to bilingual mode (showing both English and Sudanese)
+  // Default to English only mode (showing only English, no Sudanese)
   const [languageMode, setLanguageMode] = useState<LanguageMode>(() => {
     const saved = localStorage.getItem('languageMode');
-    return (saved as LanguageMode) || 'bilingual';
+    return (saved as LanguageMode) || 'english';
   });
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [languageMode]);
 
   const toggleLanguage = () => {
-    setLanguageMode((prev) => (prev === 'bilingual' ? 'english' : 'bilingual'));
+    setLanguageMode((prev) => (prev === 'english' ? 'bilingual' : 'english'));
   };
 
   // When in bilingual mode, show Sudanese text. When in english mode, hide it.
