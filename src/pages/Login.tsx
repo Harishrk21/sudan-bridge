@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import Logo from '@/components/ui/Logo';
+import SEO from '@/components/SEO';
 
 const Login: React.FC = () => {
   const { toast } = useToast();
@@ -37,6 +38,14 @@ const Login: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-muted/30 flex flex-col">
+      <SEO
+        title="Login - SudInd Smart Portal"
+        description="Login to your SudInd Smart Portal account to access medical services, academic admissions, and manage your documents."
+        keywords="login, account, SudInd login, patient portal, student portal"
+        noindex={true}
+        nofollow={true}
+        canonical="/login"
+      />
       {/* Simple Header */}
       <header className="border-b bg-card py-4">
         <div className="container mx-auto px-4">
@@ -115,12 +124,6 @@ const Login: React.FC = () => {
                 </Button>
               </form>
 
-              <div className="mt-6 text-center text-sm">
-                <span className="text-muted-foreground">Don't have an account? </span>
-                <Link to="/register" className="text-primary hover:underline font-medium">
-                  Create one
-                </Link>
-              </div>
             </CardContent>
           </Card>
 

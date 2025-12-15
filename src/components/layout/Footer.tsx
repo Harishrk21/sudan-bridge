@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import Logo from '@/components/ui/Logo';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer: React.FC = () => {
+  const { showSudanese } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const services = [
@@ -36,8 +38,12 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-1">
               <Logo size="md" />
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-                بوابتك الموثوقة للرعاية الصحية والتعليم في الهند
-                <br />
+                {showSudanese && (
+                  <>
+                    بوابتك الموثوقة للرعاية الصحية والتعليم في الهند
+                    <br />
+                  </>
+                )}
                 Your trusted gateway to healthcare and education in India.
               </p>
               <div className="mt-6 flex gap-4">
@@ -118,7 +124,7 @@ const Footer: React.FC = () => {
                     <span>
                       Khartoum, Sudan
                       <br />
-                      New Delhi, India
+                      Chennai, India
                     </span>
                   </span>
                 </li>

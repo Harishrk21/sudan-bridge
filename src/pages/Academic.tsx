@@ -20,8 +20,11 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import SectionHeading from '@/components/ui/SectionHeading';
+import { useLanguage } from '@/contexts/LanguageContext';
+import SEO from '@/components/SEO';
 
 const Academic: React.FC = () => {
+  const { showSudanese } = useLanguage();
   const programs = [
     { icon: BookOpen, name: 'MBBS & Medical', description: 'Medical degrees from top Indian medical colleges' },
     { icon: Building2, name: 'Engineering', description: 'B.Tech, M.Tech from IITs and top engineering colleges' },
@@ -86,6 +89,16 @@ const Academic: React.FC = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Academic Admission Services - Study in India for Sudanese Students"
+        description="Begin your academic journey at India's top universities. From MBBS to MBA, we guide you through every step of the admission process with 3+ partner universities."
+        keywords="study in India, MBBS India, university admission India, academic admission, student visa India, medical education India, engineering India, MBA India, scholarship India, education India"
+        ogTitle="Academic Admission Services in India - SudInd Smart Portal"
+        ogDescription="Quality education in India. Seamless university admissions with complete documentation support and visa assistance."
+        ogImage="/plain-logo.png"
+        ogUrl="https://sudind.com/academic"
+        canonical="/academic"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden gradient-hero py-20 lg:py-28">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50" />
@@ -98,7 +111,7 @@ const Academic: React.FC = () => {
             </div>
             
             <h1 className="mb-6 text-4xl font-bold text-primary-foreground sm:text-5xl lg:text-6xl">
-              خدمات القبول الجامعي
+              {showSudanese && 'خدمات القبول الجامعي'}
               <span className="block text-2xl sm:text-3xl mt-4 font-normal opacity-90">
                 Academic Admission Services
               </span>
@@ -143,7 +156,7 @@ const Academic: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Programs"
-            title="البرامج الأكاديمية"
+            title={showSudanese ? "البرامج الأكاديمية" : "Academic Programs"}
             subtitle="Wide range of undergraduate, postgraduate, and professional programs at India's best institutions."
           />
           
@@ -172,7 +185,7 @@ const Academic: React.FC = () => {
                 Most Popular
               </span>
               <h2 className="mb-6 text-3xl font-bold text-foreground sm:text-4xl">
-                دراسة الطب (MBBS) في الهند
+                {showSudanese ? 'دراسة الطب (MBBS) في الهند' : 'MBBS in India'}
               </h2>
               <p className="mb-6 text-muted-foreground">
                 India is one of the most sought-after destinations for medical education, offering high-quality MBBS programs 
@@ -234,7 +247,7 @@ const Academic: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Our Process"
-            title="خطوات القبول"
+            title={showSudanese ? "خطوات القبول" : "Admission Process"}
             subtitle="A comprehensive and transparent admission process from counseling to enrollment"
           />
           
@@ -259,11 +272,11 @@ const Academic: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Our Partners"
-            title="الجامعات الشريكة"
-            subtitle="We have partnerships with 30+ top universities and colleges across India"
+            title={showSudanese ? "الجامعات الشريكة" : "Partner Universities"}
+            subtitle="We have partnerships with 3+ top universities and colleges across India"
           />
           
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-12">
             {universities.map((university, index) => (
               <Card key={index} className="hover-lift">
                 <CardContent className="p-6 text-center">
@@ -273,6 +286,49 @@ const Academic: React.FC = () => {
               </Card>
             ))}
           </div>
+
+          {/* Coming Soon Section */}
+          <div className="max-w-3xl mx-auto">
+            <Card className="border-2 border-dashed border-primary/30 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 hover-lift overflow-hidden relative">
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50" />
+              <CardContent className="p-12 text-center relative">
+                <div className="mb-6 flex justify-center">
+                  <div className="relative">
+                    <GraduationCap className="h-16 w-16 text-primary animate-bounce" />
+                    <div className="absolute -top-2 -right-2">
+                      <Award className="h-6 w-6 text-secondary animate-pulse" />
+                    </div>
+                  </div>
+                </div>
+                <h3 className="mb-3 text-3xl font-bold text-foreground flex items-center justify-center gap-2">
+                  <span>Coming Soon</span>
+                  <ArrowRight className="h-6 w-6 text-primary animate-pulse" />
+                </h3>
+                <p className="mb-6 text-muted-foreground text-lg">
+                  We're actively establishing new partnerships with prestigious universities across India. 
+                  <span className="block mt-2 font-medium text-foreground">Stay tuned for exciting announcements!</span>
+                </p>
+                <div className="flex items-center justify-center gap-4 mt-8">
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors">
+                    <BookOpen className="h-8 w-8 text-primary animate-pulse" />
+                    <span className="text-xs text-muted-foreground">MBBS</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors">
+                    <Building2 className="h-8 w-8 text-primary animate-pulse delay-75" />
+                    <span className="text-xs text-muted-foreground">Engineering</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors">
+                    <DollarSign className="h-8 w-8 text-primary animate-pulse delay-150" />
+                    <span className="text-xs text-muted-foreground">MBA</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors">
+                    <Award className="h-8 w-8 text-primary animate-pulse delay-200" />
+                    <span className="text-xs text-muted-foreground">PhD</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -281,7 +337,7 @@ const Academic: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="What's Included"
-            title="ما يشمله خدماتنا"
+            title={showSudanese ? "ما يشمله خدماتنا" : "What's Included"}
             subtitle="Comprehensive support throughout your academic journey"
           />
           
@@ -313,7 +369,7 @@ const Academic: React.FC = () => {
       <section className="gradient-hero py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl">
-            ابدأ مستقبلك الأكاديمي اليوم
+            {showSudanese ? 'ابدأ مستقبلك الأكاديمي اليوم' : 'Start Your Academic Future Today'}
           </h2>
           <p className="mb-8 text-lg text-primary-foreground/90 max-w-2xl mx-auto">
             Take the first step towards quality education in India. Our counselors are ready to guide you.

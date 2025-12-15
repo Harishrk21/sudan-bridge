@@ -26,8 +26,11 @@ import {
 } from '@/components/ui/select';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
+import SEO from '@/components/SEO';
 
 const Contact: React.FC = () => {
+  const { showSudanese } = useLanguage();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -61,28 +64,28 @@ const Contact: React.FC = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'البريد الإلكتروني',
+      title: showSudanese ? 'البريد الإلكتروني' : 'Email',
       subtitle: 'Email',
       value: 'support@sudind.com',
       link: 'mailto:support@sudind.com',
     },
     {
       icon: Phone,
-      title: 'الهاتف',
+      title: showSudanese ? 'الهاتف' : 'Phone',
       subtitle: 'Phone (Sudan)',
       value: '+249 123 456 789',
       link: 'tel:+249123456789',
     },
     {
       icon: Phone,
-      title: 'الهاتف',
+      title: showSudanese ? 'الهاتف' : 'Phone',
       subtitle: 'Phone (India)',
       value: '+91 98765 43210',
       link: 'tel:+919876543210',
     },
     {
       icon: MessageCircle,
-      title: 'واتساب',
+      title: showSudanese ? 'واتساب' : 'WhatsApp',
       subtitle: 'WhatsApp',
       value: '+249 123 456 789',
       link: 'https://wa.me/249123456789',
@@ -92,43 +95,53 @@ const Contact: React.FC = () => {
   const offices = [
     {
       icon: Building2,
-      city: 'الخرطوم',
+      city: showSudanese ? 'الخرطوم' : 'Khartoum',
       country: 'Sudan',
       address: 'Al-Riyadh District, Khartoum, Sudan',
       hours: 'Sun - Thu: 9:00 AM - 6:00 PM',
     },
     {
       icon: Building2,
-      city: 'نيودلهي',
+      city: showSudanese ? 'تشيناي' : 'Chennai',
       country: 'India',
-      address: 'Connaught Place, New Delhi, India',
+      address: 'T. Nagar, Chennai, India',
       hours: 'Mon - Sat: 9:00 AM - 6:00 PM',
     },
   ];
 
   const faqs = [
     {
-      question: 'كم من الوقت تستغرق العملية؟',
+      question: showSudanese ? 'كم من الوقت تستغرق العملية؟' : 'How long does the process take?',
       answer: 'The process typically takes 2-4 weeks depending on the type of service. Medical cases can be expedited for urgent situations.',
     },
     {
-      question: 'ما هي تكلفة الخدمات؟',
+      question: showSudanese ? 'ما هي تكلفة الخدمات؟' : 'What are the service costs?',
       answer: 'Our consultation is free. Service fees vary based on the type of assistance needed. We provide detailed cost breakdowns upfront.',
     },
     {
-      question: 'هل تساعدون في التأشيرة؟',
+      question: showSudanese ? 'هل تساعدون في التأشيرة؟' : 'Do you help with visas?',
       answer: 'Yes, we provide complete visa assistance including documentation, application submission, and interview preparation.',
     },
   ];
 
   return (
     <Layout>
+      <SEO
+        title="Contact Us - SudInd Smart Portal | Get in Touch"
+        description="Reach out to SudInd Smart Portal for inquiries about medical treatment, academic admissions, or general questions. Our team responds within 24 hours. Offices in Khartoum, Sudan and Chennai, India."
+        keywords="contact SudInd, Sudan India contact, medical consultation, academic counseling, support, help, phone number, email, WhatsApp, office locations"
+        ogTitle="Contact SudInd Smart Portal - We're Here to Help"
+        ogDescription="We're here to help! Reach out to us for any inquiries about medical treatment, academic admissions, or general questions."
+        ogImage="/plain-logo.png"
+        ogUrl="https://sudind.com/contact"
+        canonical="/contact"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden gradient-hero py-20 lg:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-6 text-4xl font-bold text-primary-foreground sm:text-5xl lg:text-6xl">
-              تواصل معنا
+              {showSudanese && 'تواصل معنا'}
               <span className="block text-2xl sm:text-3xl mt-4 font-normal opacity-90">
                 Contact Us
               </span>
@@ -170,7 +183,7 @@ const Contact: React.FC = () => {
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Contact Form */}
             <div>
-              <h2 className="mb-2 text-2xl font-bold text-foreground">أرسل لنا رسالة</h2>
+              <h2 className="mb-2 text-2xl font-bold text-foreground">{showSudanese ? 'أرسل لنا رسالة' : 'Send Us a Message'}</h2>
               <p className="mb-6 text-muted-foreground">
                 Fill out the form below and we'll get back to you as soon as possible.
               </p>
@@ -180,7 +193,7 @@ const Contact: React.FC = () => {
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
-                        <Label htmlFor="name">الاسم الكامل *</Label>
+                        <Label htmlFor="name">{showSudanese ? 'الاسم الكامل *' : 'Full Name *'}</Label>
                         <Input
                           id="name"
                           name="name"
@@ -191,7 +204,7 @@ const Contact: React.FC = () => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">البريد الإلكتروني *</Label>
+                        <Label htmlFor="email">{showSudanese ? 'البريد الإلكتروني *' : 'Email *'}</Label>
                         <Input
                           id="email"
                           name="email"
@@ -206,7 +219,7 @@ const Contact: React.FC = () => {
                     
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
-                        <Label htmlFor="phone">رقم الهاتف</Label>
+                        <Label htmlFor="phone">{showSudanese ? 'رقم الهاتف' : 'Phone Number'}</Label>
                         <Input
                           id="phone"
                           name="phone"
@@ -216,7 +229,7 @@ const Contact: React.FC = () => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="service">الخدمة المطلوبة *</Label>
+                        <Label htmlFor="service">{showSudanese ? 'الخدمة المطلوبة *' : 'Required Service *'}</Label>
                         <Select
                           value={formData.service}
                           onValueChange={(value) => setFormData({ ...formData, service: value })}
@@ -235,7 +248,7 @@ const Contact: React.FC = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="message">الرسالة *</Label>
+                      <Label htmlFor="message">{showSudanese ? 'الرسالة *' : 'Message *'}</Label>
                       <Textarea
                         id="message"
                         name="message"
@@ -264,7 +277,7 @@ const Contact: React.FC = () => {
 
             {/* Offices */}
             <div>
-              <h2 className="mb-2 text-2xl font-bold text-foreground">مكاتبنا</h2>
+              <h2 className="mb-2 text-2xl font-bold text-foreground">{showSudanese ? 'مكاتبنا' : 'Our Offices'}</h2>
               <p className="mb-6 text-muted-foreground">
                 Visit us at our offices in Sudan and India.
               </p>
@@ -298,7 +311,7 @@ const Contact: React.FC = () => {
 
               {/* Quick Actions */}
               <div className="mt-8 space-y-4">
-                <h3 className="text-lg font-semibold text-foreground">اتصال سريع</h3>
+                <h3 className="text-lg font-semibold text-foreground">{showSudanese ? 'اتصال سريع' : 'Quick Contact'}</h3>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Button variant="outline" className="h-auto py-4" asChild>
                     <a href="https://wa.me/249123456789" target="_blank" rel="noopener noreferrer">
@@ -330,7 +343,7 @@ const Contact: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="FAQs"
-            title="الأسئلة الشائعة"
+            title={showSudanese ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
             subtitle="Quick answers to common questions"
           />
           
@@ -351,7 +364,7 @@ const Contact: React.FC = () => {
       <section className="gradient-hero py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl">
-            نحن هنا لمساعدتك
+            {showSudanese ? 'نحن هنا لمساعدتك' : 'We Are Here to Help'}
           </h2>
           <p className="mb-8 text-lg text-primary-foreground/90 max-w-2xl mx-auto">
             Don't hesitate to reach out. Our team is ready to assist you with your medical and academic needs.

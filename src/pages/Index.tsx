@@ -28,14 +28,17 @@ import { Input } from '@/components/ui/input';
 import SectionHeading from '@/components/ui/SectionHeading';
 import ServiceCard from '@/components/ui/ServiceCard';
 import StatCard from '@/components/ui/StatCard';
+import { useLanguage } from '@/contexts/LanguageContext';
+import SEO from '@/components/SEO';
 
 const Index: React.FC = () => {
+  const { showSudanese } = useLanguage();
   const services = [
     {
       icon: Stethoscope,
       title: 'Medical Treatment',
       description: 'Connect with India\'s top hospitals for specialized treatments, surgeries, and consultations at affordable prices.',
-      features: ['50+ Partner Hospitals', 'All Specializations', 'Complete Care Coordination'],
+      features: ['5+ Partner Hospitals', 'All Specializations', 'Complete Care Coordination'],
       href: '/medical',
       featured: true,
     },
@@ -43,7 +46,7 @@ const Index: React.FC = () => {
       icon: GraduationCap,
       title: 'Academic Admissions',
       description: 'Seamless university admissions to India\'s premier institutions with full documentation support.',
-      features: ['30+ Partner Universities', 'Scholarship Guidance', 'Visa Assistance'],
+      features: ['3+ Partner Universities', 'Scholarship Guidance', 'Visa Assistance'],
       href: '/academic',
       featured: true,
     },
@@ -79,8 +82,8 @@ const Index: React.FC = () => {
 
   const stats = [
     { value: '500+', label: 'Successful Cases', icon: CheckCircle2 },
-    { value: '50+', label: 'Partner Hospitals', icon: Building2 },
-    { value: '30+', label: 'Partner Universities', icon: GraduationCap },
+    { value: '5+', label: 'Partner Hospitals', icon: Building2 },
+    { value: '3+', label: 'Partner Universities', icon: GraduationCap },
     { value: '24/7', label: 'Support Available', icon: Clock },
   ];
 
@@ -116,9 +119,33 @@ const Index: React.FC = () => {
 
   return (
     <Layout>
+      <SEO
+        title="SudInd Smart Portal - Your Gateway to Healthcare & Education in India"
+        description="Connect with India's premier hospitals and universities. SudInd Smart Portal provides seamless medical treatment, academic admissions, and comprehensive support services for Sudanese patients and students."
+        keywords="Sudan India, medical treatment India, study in India, Sudanese students India, medical tourism, MBBS India, healthcare India, academic admissions, visa assistance, document management, medical services India"
+        ogTitle="SudInd Smart Portal - Healthcare & Education Gateway"
+        ogDescription="Your trusted bridge connecting Sudan to India's finest healthcare facilities and educational institutions."
+        ogImage="/plain-logo.png"
+        ogUrl="https://sudind.com/"
+        canonical="/"
+      />
       {/* Hero Section */}
-      <section className="relative overflow-hidden gradient-hero py-20 sm:py-28 lg:py-36">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50" />
+      <section className="relative overflow-hidden py-20 sm:py-28 lg:py-36">
+        {/* Background Image with Blur */}
+        <div 
+          className="absolute inset-0 bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/homebg.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'blur(3px)',
+            transform: 'scale(1)',
+          }}
+        />
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/70 to-primary/85" />
+        {/* Pattern Overlay */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-30" />
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
@@ -128,7 +155,7 @@ const Index: React.FC = () => {
             </div>
             
             <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl animate-slide-up">
-              بوابتك إلى
+              {showSudanese && 'بوابتك إلى'}
               <span className="block mt-2">
                 Quality Healthcare & Education
               </span>
@@ -163,12 +190,6 @@ const Index: React.FC = () => {
               </Button>
             </div>
 
-            <p className="mt-6 text-sm text-primary-foreground/70 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              Already have an account?{' '}
-              <Link to="/login" className="font-medium text-primary-foreground underline hover:no-underline">
-                Sign in here
-              </Link>
-            </p>
           </div>
         </div>
       </section>
@@ -191,6 +212,7 @@ const Index: React.FC = () => {
             badge="Who We Are"
             title="Your Trusted Bridge Between Sudan & India"
             subtitle="SudInd Smart Portal is an integrated digital platform that bridges the gap between Sudan and India, facilitating seamless connections for medical treatments, academic admissions, and professional services."
+            titleClassName="font-playfair"
           />
           
           <div className="grid gap-8 md:grid-cols-3">
@@ -199,7 +221,7 @@ const Index: React.FC = () => {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                   <Building2 className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold">المكتب الرئيسي - السودان</h3>
+                {showSudanese && <h3 className="mb-2 text-xl font-semibold">المكتب الرئيسي - السودان</h3>}
                 <p className="text-sm text-muted-foreground">
                   Centralized administration and client coordination in Khartoum
                 </p>
@@ -221,7 +243,7 @@ const Index: React.FC = () => {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                   <Heart className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold">عملاؤنا</h3>
+                {showSudanese && <h3 className="mb-2 text-xl font-semibold">عملاؤنا</h3>}
                 <p className="text-sm text-muted-foreground">
                   Patients, students, and visitors we proudly serve
                 </p>
@@ -236,7 +258,7 @@ const Index: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Our Services"
-            title="خدماتنا الشاملة"
+            title={showSudanese ? "خدماتنا الشاملة" : "Our Comprehensive Services"}
             subtitle="Comprehensive solutions for your medical, academic, and travel needs - from initial consultation to successful completion."
           />
           
@@ -253,7 +275,7 @@ const Index: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Why SudInd?"
-            title="لماذا تختارنا؟"
+            title={showSudanese ? "لماذا تختارنا؟" : "Why Choose Us?"}
             subtitle="Advanced technology and dedicated support to make your journey seamless"
           />
           
@@ -275,7 +297,7 @@ const Index: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Success Stories"
-            title="قصص نجاح عملائنا"
+            title={showSudanese ? "قصص نجاح عملائنا" : "Success Stories"}
             subtitle="Hear from patients and students who achieved their goals with SudInd"
           />
           
@@ -305,7 +327,7 @@ const Index: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl lg:text-5xl">
-              ابدأ رحلتك اليوم
+              {showSudanese ? 'ابدأ رحلتك اليوم' : 'Start Your Journey Today'}
             </h2>
             <p className="mb-8 text-lg text-primary-foreground/90">
               Join hundreds of satisfied clients who trust SudInd for their medical and academic needs. Your journey to India starts here.

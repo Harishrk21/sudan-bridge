@@ -23,12 +23,15 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import SectionHeading from '@/components/ui/SectionHeading';
+import { useLanguage } from '@/contexts/LanguageContext';
+import SEO from '@/components/SEO';
 
 const Services: React.FC = () => {
+  const { showSudanese } = useLanguage();
   const mainServices = [
     {
       icon: Stethoscope,
-      title: 'خدمات العلاج الطبي',
+      title: showSudanese ? 'خدمات العلاج الطبي' : 'Medical Treatment Services',
       subtitle: 'Medical Treatment Services',
       description: 'Connect with India\'s top hospitals for specialized medical treatments, surgeries, and consultations. Our network includes 50+ accredited hospitals across all major specializations.',
       features: [
@@ -44,7 +47,7 @@ const Services: React.FC = () => {
     },
     {
       icon: GraduationCap,
-      title: 'خدمات القبول الجامعي',
+      title: showSudanese ? 'خدمات القبول الجامعي' : 'Academic Admission Services',
       subtitle: 'Academic Admission Services',
       description: 'Seamless university admissions process with document verification and academic counseling. Access to 30+ partner universities for various programs.',
       features: [
@@ -60,7 +63,7 @@ const Services: React.FC = () => {
     },
     {
       icon: Plane,
-      title: 'خدمات الزوار',
+      title: showSudanese ? 'خدمات الزوار' : 'Visitor Services',
       subtitle: 'Visitor Services',
       description: 'Comprehensive travel and visitor assistance for those traveling to India for medical treatment, education, or tourism purposes.',
       features: [
@@ -79,28 +82,28 @@ const Services: React.FC = () => {
     {
       icon: FileText,
       title: 'Document Management',
-      subtitle: 'إدارة المستندات',
+      subtitle: showSudanese ? 'إدارة المستندات' : 'Document Management',
       description: 'Secure document vault with end-to-end encryption for all your medical and academic documents.',
       features: ['End-to-End Encryption', 'Cloud Storage', 'Document Forwarding', 'Real-time Access'],
     },
     {
       icon: Shield,
       title: 'Secure Payments',
-      subtitle: 'المدفوعات الآمنة',
+      subtitle: showSudanese ? 'المدفوعات الآمنة' : 'Secure Payments',
       description: 'Multiple payment options including Mobile Money, Bank Cards, and Bank Transfers with secure processing.',
       features: ['Mobile Money', 'Bank Cards', 'Bank Transfer', 'Secure Processing'],
     },
     {
       icon: MessageCircle,
       title: '24/7 Support',
-      subtitle: 'الدعم على مدار الساعة',
+      subtitle: showSudanese ? 'الدعم على مدار الساعة' : '24/7 Support',
       description: 'Round-the-clock customer support with real-time chat in Arabic and English.',
       features: ['Live Chat', 'Arabic Support', 'Case Updates', 'Video Calls'],
     },
     {
       icon: BarChart3,
       title: 'Case Tracking',
-      subtitle: 'تتبع الحالة',
+      subtitle: showSudanese ? 'تتبع الحالة' : 'Case Tracking',
       description: 'Track your case progress in real-time with step-by-step updates and timeline visualization.',
       features: ['Progress Tracking', 'Status Updates', 'Timeline View', 'Notifications'],
     },
@@ -117,12 +120,22 @@ const Services: React.FC = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Our Services - Comprehensive Medical, Academic & Support Services"
+        description="From medical treatment to academic admissions, we provide end-to-end support for all your needs in India. Experience seamless coordination at every step with comprehensive services."
+        keywords="services, medical services, academic services, visitor services, document management, secure payments, 24/7 support, case tracking, visa assistance"
+        ogTitle="Our Comprehensive Services - SudInd Smart Portal"
+        ogDescription="End-to-end support for medical treatment, academic admissions, and travel needs in India."
+        ogImage="/plain-logo.png"
+        ogUrl="https://sudind.com/services"
+        canonical="/services"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden gradient-hero py-20 lg:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-6 text-4xl font-bold text-primary-foreground sm:text-5xl lg:text-6xl">
-              خدماتنا الشاملة
+              {showSudanese && 'خدماتنا الشاملة'}
               <span className="block text-2xl sm:text-3xl mt-4 font-normal opacity-90">
                 Our Comprehensive Services
               </span>
@@ -156,7 +169,7 @@ const Services: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Main Services"
-            title="الخدمات الرئيسية"
+            title={showSudanese ? "الخدمات الرئيسية" : "Main Services"}
             subtitle="Our core services designed to support your journey to India"
           />
           
@@ -211,7 +224,7 @@ const Services: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Support Services"
-            title="خدمات الدعم"
+            title={showSudanese ? "خدمات الدعم" : "Support Services"}
             subtitle="Essential support services that make your experience seamless"
           />
           
@@ -245,7 +258,7 @@ const Services: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Additional Services"
-            title="خدمات إضافية"
+            title={showSudanese ? "خدمات إضافية" : "Additional Services"}
             subtitle="Extra services to ensure a comfortable experience in India"
           />
           
@@ -270,7 +283,7 @@ const Services: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Process"
-            title="كيف نعمل؟"
+            title={showSudanese ? "كيف نعمل؟" : "How It Works"}
             subtitle="Simple steps to get started with our services"
           />
           
@@ -299,7 +312,7 @@ const Services: React.FC = () => {
       <section className="gradient-hero py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl">
-            هل أنت مستعد للبدء؟
+            {showSudanese ? 'هل أنت مستعد للبدء؟' : 'Are You Ready to Start?'}
           </h2>
           <p className="mb-8 text-lg text-primary-foreground/90 max-w-2xl mx-auto">
             Contact us today for a free consultation and let us help you achieve your healthcare or academic goals in India.

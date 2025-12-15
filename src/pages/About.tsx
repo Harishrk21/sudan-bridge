@@ -20,12 +20,15 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import SectionHeading from '@/components/ui/SectionHeading';
 import StatCard from '@/components/ui/StatCard';
+import { useLanguage } from '@/contexts/LanguageContext';
+import SEO from '@/components/SEO';
 
 const About: React.FC = () => {
+  const { showSudanese } = useLanguage();
   const stats = [
     { value: '500+', label: 'Successful Cases', icon: CheckCircle2 },
-    { value: '50+', label: 'Partner Hospitals', icon: Building2 },
-    { value: '30+', label: 'Partner Universities', icon: Award },
+    { value: '5+', label: 'Partner Hospitals', icon: Building2 },
+    { value: '3+', label: 'Partner Universities', icon: Award },
     { value: '5+', label: 'Years of Service', icon: Clock },
   ];
 
@@ -80,23 +83,30 @@ const About: React.FC = () => {
   ];
 
   const milestones = [
-    { year: '2019', event: 'SudInd founded in Khartoum' },
-    { year: '2020', event: 'Established India operations' },
-    { year: '2021', event: '100+ successful medical cases' },
-    { year: '2022', event: 'Launched academic services' },
-    { year: '2023', event: '500+ clients served' },
-    { year: '2024', event: 'Digital platform launched' },
-    { year: '2025', event: 'Expanded partner network & AI integration' },
+    { year: '2023', event: 'Vision & Conceptualization' },
+    { year: '2024', event: 'Company Founded' },
+    { year: '2025', event: 'Strategic Hospital Partnerships Established' },
+    { year: '2026', event: 'Active Service Delivery' },
   ];
 
   return (
     <Layout>
+      <SEO
+        title="About Us - SudInd Smart Portal | Your Trusted Bridge Between Sudan & India"
+        description="Learn about SudInd Smart Portal - the trusted bridge connecting Sudanese people to India's finest healthcare facilities and educational institutions. Founded in 2024, serving 500+ clients."
+        keywords="about SudInd, Sudan India bridge, medical services, academic services, healthcare India, education India, company history, mission vision"
+        ogTitle="About SudInd Smart Portal - Your Trusted Bridge"
+        ogDescription="We are the trusted bridge connecting Sudanese people to India's finest healthcare facilities and educational institutions."
+        ogImage="/plain-logo.png"
+        ogUrl="https://sudind.com/about"
+        canonical="/about"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden gradient-hero py-20 lg:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-6 text-4xl font-bold text-primary-foreground sm:text-5xl lg:text-6xl">
-              من نحن
+              {showSudanese && 'من نحن'}
               <span className="block text-2xl sm:text-3xl mt-4 font-normal opacity-90">
                 About SudInd Smart Portal
               </span>
@@ -130,7 +140,7 @@ const About: React.FC = () => {
                 Our Story
               </span>
               <h2 className="mb-6 text-3xl font-bold text-foreground sm:text-4xl">
-                قصتنا
+                {showSudanese ? 'قصتنا' : 'Our Story'}
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
@@ -139,7 +149,7 @@ const About: React.FC = () => {
                   unfamiliar systems, and lack of reliable guidance.
                 </p>
                 <p>
-                  Founded in 2019, we set out to create a seamless bridge between Sudan and India. 
+                  Founded in 2024, we set out to create a seamless bridge between Sudan and India. 
                   Our team of dedicated professionals in both countries work together to ensure that 
                   every patient receives the best medical care and every student finds their path to 
                   academic success.
@@ -151,27 +161,71 @@ const About: React.FC = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-2 gap-4">
-              <Card className="p-6 text-center hover-lift">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                  <MapPin className="h-8 w-8 text-primary" />
+            <div className="space-y-6">
+              {/* Sudan Headquarters */}
+              <Card className="hover-lift overflow-hidden">
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="relative h-48 md:h-full min-h-[200px]">
+                    <img 
+                      src="/khardoum.png" 
+                      alt="Khartoum, Capital of Sudan" 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      {showSudanese && <h3 className="font-semibold text-white text-lg">الخرطوم</h3>}
+                      <p className="text-sm text-white/90">Khartoum - Sudan Headquarters</p>
+                    </div>
+                  </div>
+                  <div className="relative h-48 md:h-full min-h-[200px]">
+                    <img 
+                      src="/portcitysudan.png" 
+                      alt="Sudan Port City" 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      {showSudanese && <h3 className="font-semibold text-white text-lg">ميناء السودان</h3>}
+                      <p className="text-sm text-white/90">Port Sudan City (Airport Dist) - Operations</p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-foreground">الخرطوم</h3>
-                <p className="text-sm text-muted-foreground">Sudan Headquarters</p>
+                <CardContent className="p-6 bg-card">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                      <MapPin className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Sudan Headquarters</h3>
+                      <p className="text-sm text-muted-foreground">Centralized administration and client coordination</p>
+                    </div>
+                  </div>
+                </CardContent>
               </Card>
-              <Card className="p-6 text-center hover-lift">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary/20">
-                  <MapPin className="h-8 w-8 text-secondary" />
+
+              {/* India Operations */}
+              <Card className="hover-lift overflow-hidden">
+                <div className="relative h-64 md:h-80">
+                  <img 
+                    src="/chennai.png" 
+                    alt="Chennai Central Railway Station" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    {showSudanese && <h3 className="font-semibold text-white text-xl mb-1">تشيناي</h3>}
+                    <p className="text-sm text-white/90 mb-2">Chennai</p>
+                    <div className="flex items-center gap-2 mt-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 backdrop-blur-sm">
+                        <MapPin className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-white">India Operations</p>
+                        <p className="text-xs text-white/80">Chennai, Tamil Nadu</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-foreground">نيودلهي</h3>
-                <p className="text-sm text-muted-foreground">India Operations</p>
-              </Card>
-              <Card className="col-span-2 p-6 text-center hover-lift">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                  <Globe className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-semibold text-foreground">الوصول العالمي</h3>
-                <p className="text-sm text-muted-foreground">Supporting clients across Sudan and beyond</p>
               </Card>
             </div>
           </div>
@@ -187,7 +241,7 @@ const About: React.FC = () => {
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl gradient-primary">
                   <Target className="h-8 w-8 text-primary-foreground" />
                 </div>
-                <h3 className="mb-2 text-2xl font-bold text-foreground">مهمتنا</h3>
+                {showSudanese && <h3 className="mb-2 text-2xl font-bold text-foreground">مهمتنا</h3>}
                 <h4 className="mb-4 text-lg text-primary">Our Mission</h4>
                 <p className="text-muted-foreground leading-relaxed">
                   To make world-class healthcare and education accessible to every Sudanese individual 
@@ -202,7 +256,7 @@ const About: React.FC = () => {
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-secondary">
                   <Eye className="h-8 w-8 text-secondary-foreground" />
                 </div>
-                <h3 className="mb-2 text-2xl font-bold text-foreground">رؤيتنا</h3>
+                {showSudanese && <h3 className="mb-2 text-2xl font-bold text-foreground">رؤيتنا</h3>}
                 <h4 className="mb-4 text-lg text-secondary">Our Vision</h4>
                 <p className="text-muted-foreground leading-relaxed">
                   To become the most trusted and comprehensive gateway for Sudanese families seeking 
@@ -220,7 +274,7 @@ const About: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Our Values"
-            title="قيمنا"
+            title={showSudanese ? "قيمنا" : "Our Values"}
             subtitle="The principles that guide everything we do"
           />
           
@@ -231,7 +285,7 @@ const About: React.FC = () => {
                   <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     <value.icon className="h-7 w-7 text-primary" />
                   </div>
-                  <h3 className="mb-1 text-lg font-semibold text-foreground">{value.title}</h3>
+                  {showSudanese && <h3 className="mb-1 text-lg font-semibold text-foreground">{value.title}</h3>}
                   <p className="mb-3 text-sm text-primary">{value.subtitle}</p>
                   <p className="text-sm text-muted-foreground">{value.description}</p>
                 </CardContent>
@@ -246,7 +300,7 @@ const About: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Our Team"
-            title="فريقنا"
+            title={showSudanese ? "فريقنا" : "Our Team"}
             subtitle="Dedicated professionals committed to your success"
           />
           
@@ -272,7 +326,7 @@ const About: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Our Journey"
-            title="رحلتنا"
+            title={showSudanese ? "رحلتنا" : "Our Journey"}
             subtitle="Key milestones in our growth story"
           />
           
@@ -304,7 +358,7 @@ const About: React.FC = () => {
       <section className="gradient-hero py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl">
-            هل أنت مستعد للبدء؟
+            {showSudanese ? 'هل أنت مستعد للبدء؟' : 'Are You Ready to Start?'}
           </h2>
           <p className="mb-8 text-lg text-primary-foreground/90 max-w-2xl mx-auto">
             Join hundreds of families who have trusted SudInd with their healthcare and education needs.

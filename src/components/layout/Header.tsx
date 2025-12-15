@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Languages } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -10,10 +10,12 @@ import {
 } from '@/components/ui/dropdown-menu';
 import Logo from '@/components/ui/Logo';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { languageMode, toggleLanguage } = useLanguage();
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -26,7 +28,12 @@ const Header: React.FC = () => {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+    <header 
+      className="sticky top-0 z-50 w-full border-b backdrop-blur supports-[backdrop-filter]:backdrop-blur"
+      style={{ 
+        backgroundColor: `hsl(var(--navbar-background) / var(--navbar-background-opacity))` 
+      }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between lg:h-20">
           <Logo size="md" clickable={true} />
@@ -49,13 +56,11 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
+          {/* Desktop Language Toggle */}
           <div className="hidden lg:flex lg:items-center lg:gap-3">
-            <Button variant="outline" asChild>
-              <Link to="/login">Sign In</Link>
-            </Button>
-            <Button asChild>
-              <Link to="/register">Get Started</Link>
+            <Button onClick={toggleLanguage} variant="outline" className="gap-2">
+              <Languages className="h-4 w-4" />
+              {languageMode === 'bilingual' ? 'English' : 'السودان'}
             </Button>
           </div>
 
@@ -76,7 +81,12 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t bg-card">
+        <div 
+          className="lg:hidden border-t"
+          style={{ 
+            backgroundColor: `hsl(var(--navbar-background))` 
+          }}
+        >
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navigation.map((item) => (
               <Link
@@ -94,15 +104,9 @@ const Header: React.FC = () => {
               </Link>
             ))}
             <div className="pt-4 space-y-2 border-t mt-4">
-              <Button variant="outline" className="w-full" asChild>
-                <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
-                  Sign In
-                </Link>
-              </Button>
-              <Button className="w-full" asChild>
-                <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
-                  Get Started
-                </Link>
+              <Button className="w-full" onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }} variant="outline">
+                <Languages className="mr-2 h-4 w-4" />
+                {languageMode === 'bilingual' ? 'English' : 'السودان'}
               </Button>
             </div>
           </div>

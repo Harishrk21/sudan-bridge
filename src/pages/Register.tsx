@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import Logo from '@/components/ui/Logo';
+import SEO from '@/components/SEO';
 
 const Register: React.FC = () => {
   const { toast } = useToast();
@@ -66,6 +67,12 @@ const Register: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-muted/30 flex flex-col">
+      <SEO
+        title="Register - Create Your SudInd Smart Portal Account"
+        description="Create your SudInd Smart Portal account to access medical treatment services, academic admissions, and comprehensive support for your journey to India."
+        keywords="register, sign up, create account, SudInd registration, patient registration, student registration"
+        canonical="/register"
+      />
       {/* Simple Header */}
       <header className="border-b bg-card py-4">
         <div className="container mx-auto px-4">
@@ -206,12 +213,6 @@ const Register: React.FC = () => {
                 </Button>
               </form>
 
-              <div className="mt-6 text-center text-sm">
-                <span className="text-muted-foreground">Already have an account? </span>
-                <Link to="/login" className="text-primary hover:underline font-medium">
-                  Sign in
-                </Link>
-              </div>
             </CardContent>
           </Card>
         </div>

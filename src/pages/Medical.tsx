@@ -19,13 +19,17 @@ import {
   FileText,
   Phone,
   Star,
+  Sparkles,
 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import SectionHeading from '@/components/ui/SectionHeading';
+import { useLanguage } from '@/contexts/LanguageContext';
+import SEO from '@/components/SEO';
 
 const Medical: React.FC = () => {
+  const { showSudanese } = useLanguage();
   const specializations = [
     { icon: Heart, name: 'Cardiology', description: 'Heart surgeries, bypass, valve replacement, angioplasty' },
     { icon: Brain, name: 'Neurology', description: 'Brain surgeries, spine treatments, neurological disorders' },
@@ -92,6 +96,16 @@ const Medical: React.FC = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Medical Treatment Services - India Healthcare for Sudanese Patients"
+        description="Access India's finest healthcare facilities for specialized treatments, surgeries, and consultations. Expert medical coordination with 5+ partner hospitals across all major specializations."
+        keywords="medical treatment India, healthcare India, surgery India, medical tourism, cardiac surgery, cancer treatment, organ transplant, medical visa India, hospital India, medical consultation"
+        ogTitle="Medical Treatment Services in India - SudInd Smart Portal"
+        ogDescription="World-class medical care in India. Connect with top hospitals for specialized treatments, surgeries, and consultations."
+        ogImage="/plain-logo.png"
+        ogUrl="https://sudind.com/medical"
+        canonical="/medical"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden gradient-hero py-20 lg:py-28">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50" />
@@ -104,7 +118,7 @@ const Medical: React.FC = () => {
             </div>
             
             <h1 className="mb-6 text-4xl font-bold text-primary-foreground sm:text-5xl lg:text-6xl">
-              خدمات العلاج الطبي
+              {showSudanese && 'خدمات العلاج الطبي'}
               <span className="block text-2xl sm:text-3xl mt-4 font-normal opacity-90">
                 Medical Treatment Services
               </span>
@@ -149,7 +163,7 @@ const Medical: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Specializations"
-            title="التخصصات الطبية"
+            title={showSudanese ? "التخصصات الطبية" : "Medical Specializations"}
             subtitle="Our network covers all major medical specializations with access to India's top specialists and surgeons."
           />
           
@@ -174,7 +188,7 @@ const Medical: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="How It Works"
-            title="كيف نعمل؟"
+            title={showSudanese ? "كيف نعمل؟" : "How It Works"}
             subtitle="A simple, streamlined process to get you the best medical care in India"
           />
           
@@ -199,11 +213,11 @@ const Medical: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Our Partners"
-            title="المستشفيات الشريكة"
+            title={showSudanese ? "المستشفيات الشريكة" : "Partner Hospitals"}
             subtitle="We partner with India's most prestigious and accredited healthcare institutions"
           />
           
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-12">
             {hospitals.map((hospital, index) => (
               <Card key={index} className="hover-lift">
                 <CardContent className="p-6 text-center">
@@ -212,6 +226,49 @@ const Medical: React.FC = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Coming Soon Section */}
+          <div className="max-w-3xl mx-auto">
+            <Card className="border-2 border-dashed border-primary/30 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 hover-lift overflow-hidden relative">
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50" />
+              <CardContent className="p-12 text-center relative">
+                <div className="mb-6 flex justify-center">
+                  <div className="relative">
+                    <Building2 className="h-16 w-16 text-primary animate-bounce" />
+                    <div className="absolute -top-2 -right-2">
+                      <Sparkles className="h-6 w-6 text-secondary animate-pulse" />
+                    </div>
+                  </div>
+                </div>
+                <h3 className="mb-3 text-3xl font-bold text-foreground flex items-center justify-center gap-2">
+                  <span>Coming Soon</span>
+                  <ArrowRight className="h-6 w-6 text-primary animate-pulse" />
+                </h3>
+                <p className="mb-6 text-muted-foreground text-lg">
+                  We're actively establishing new partnerships with top hospitals across India. 
+                  <span className="block mt-2 font-medium text-foreground">Stay tuned for exciting announcements!</span>
+                </p>
+                <div className="flex items-center justify-center gap-4 mt-8">
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors">
+                    <Heart className="h-8 w-8 text-primary animate-pulse" />
+                    <span className="text-xs text-muted-foreground">Cardiology</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors">
+                    <Brain className="h-8 w-8 text-primary animate-pulse delay-75" />
+                    <span className="text-xs text-muted-foreground">Neurology</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors">
+                    <Microscope className="h-8 w-8 text-primary animate-pulse delay-150" />
+                    <span className="text-xs text-muted-foreground">Oncology</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors">
+                    <Activity className="h-8 w-8 text-primary animate-pulse delay-200" />
+                    <span className="text-xs text-muted-foreground">Transplants</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -225,7 +282,7 @@ const Medical: React.FC = () => {
                 Complete Care Package
               </span>
               <h2 className="mb-6 text-3xl font-bold text-foreground sm:text-4xl">
-                ما يشمله خدماتنا
+                {showSudanese ? 'ما يشمله خدماتنا' : "What's Included"}
               </h2>
               <p className="mb-8 text-muted-foreground">
                 Our medical treatment services include comprehensive support at every step of your healthcare journey.
@@ -289,7 +346,7 @@ const Medical: React.FC = () => {
       <section className="gradient-hero py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl">
-            ابدأ رحلتك العلاجية اليوم
+            {showSudanese ? 'ابدأ رحلتك العلاجية اليوم' : 'Start Your Treatment Journey Today'}
           </h2>
           <p className="mb-8 text-lg text-primary-foreground/90 max-w-2xl mx-auto">
             Don't wait for your health. Contact us today and let us connect you with the best healthcare in India.
