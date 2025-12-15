@@ -31,7 +31,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
           {badge}
         </span>
       )}
-      <h2 className={cn("text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl", titleClassName)}>
+      <h2 className={cn("text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl", titleClassName || "font-slogan")}>
         {title}
       </h2>
       {subtitle && (

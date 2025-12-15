@@ -127,7 +127,7 @@ const Register: React.FC = () => {
                     <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="phone"
-                      placeholder="+249 XXX XXX XXX"
+                      placeholder="+249 11 246 0791"
                       className="pl-10"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}

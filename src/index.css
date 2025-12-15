@@ -1,7 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+/* Open Sans Alt - If you have the font files, uncomment and update paths */
+/* @font-face {
+  font-family: 'Open Sans Alt';
+  src: url('/fonts/OpenSansAlt-Regular.woff2') format('woff2'),
+       url('/fonts/OpenSansAlt-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+} */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,9 +68,10 @@ All colors MUST be HSL.
 
     --sidebar: 0 0% 100%;
 
-    --font-sans: 'Inter', 'Roboto', ui-sans-serif, system-ui, sans-serif;
-    --font-serif: 'Libre Caslon Text', ui-serif, Georgia, serif;
-    --font-mono: 'Roboto Mono', ui-monospace, monospace;
+    --font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-slogan: 'Open Sans Condensed', 'Open Sans Alt', 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+    --font-mono: ui-monospace, monospace;
 
     --shadow-2xs: 0 1px 2px 0px hsl(0 0% 0% / 0.03);
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
@@ -146,7 +156,8 @@ All colors MUST be HSL.
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight;
+    font-family: var(--font-slogan);
+    @apply tracking-tight;
   }
 }
 
@@ -216,6 +227,12 @@ All colors MUST be HSL.
 
 .font-playfair {
   font-family: 'Playfair Display', serif;
+}
+
+.font-slogan {
+  font-family: 'Open Sans Condensed', 'Open Sans Alt', 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  font-stretch: condensed;
 }
 
 .delay-75 {

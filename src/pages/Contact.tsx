@@ -73,8 +73,8 @@ const Contact: React.FC = () => {
       icon: Phone,
       title: showSudanese ? 'الهاتف' : 'Phone',
       subtitle: 'Phone (Sudan)',
-      value: '+249 123 456 789',
-      link: 'tel:+249123456789',
+      value: '+249 11 246 0791',
+      link: 'tel:+249112460791',
     },
     {
       icon: Phone,
@@ -87,8 +87,8 @@ const Contact: React.FC = () => {
       icon: MessageCircle,
       title: showSudanese ? 'واتساب' : 'WhatsApp',
       subtitle: 'WhatsApp',
-      value: '+249 123 456 789',
-      link: 'https://wa.me/249123456789',
+      value: '+249 11 246 0791',
+      link: 'https://wa.me/249112460791',
     },
   ];
 
@@ -223,7 +223,7 @@ const Contact: React.FC = () => {
                         <Input
                           id="phone"
                           name="phone"
-                          placeholder="+249 XXX XXX XXX"
+                          placeholder="+249 11 246 0791"
                           value={formData.phone}
                           onChange={handleChange}
                         />
@@ -314,7 +314,7 @@ const Contact: React.FC = () => {
                 <h3 className="text-lg font-semibold text-foreground">{showSudanese ? 'اتصال سريع' : 'Quick Contact'}</h3>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Button variant="outline" className="h-auto py-4" asChild>
-                    <a href="https://wa.me/249123456789" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/249112460791" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="mr-2 h-5 w-5 text-primary" />
                       <span>
                         WhatsApp<br />
@@ -323,7 +323,7 @@ const Contact: React.FC = () => {
                     </a>
                   </Button>
                   <Button variant="outline" className="h-auto py-4" asChild>
-                    <a href="tel:+249123456789">
+                    <a href="tel:+249112460791">
                       <Phone className="mr-2 h-5 w-5 text-primary" />
                       <span>
                         Call Us<br />
@@ -371,13 +371,13 @@ const Contact: React.FC = () => {
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button size="lg" variant="secondary" asChild>
-              <a href="tel:+249123456789">
+              <a href="tel:+249112460791">
                 <Phone className="mr-2 h-5 w-5" />
                 Call Now
               </a>
             </Button>
             <Button size="lg" variant="outline" className="bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20" asChild>
-              <a href="https://wa.me/249123456789" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/249112460791" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 WhatsApp Us
               </a>

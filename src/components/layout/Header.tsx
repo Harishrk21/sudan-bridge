@@ -60,7 +60,7 @@ const Header: React.FC = () => {
           <div className="hidden lg:flex lg:items-center lg:gap-3">
             <Button onClick={toggleLanguage} variant="outline" className="gap-2">
               <Languages className="h-4 w-4" />
-              {languageMode === 'bilingual' ? 'English' : 'السودان'}
+              {languageMode === 'bilingual' ? 'English' : 'عربي'}
             </Button>
           </div>
 
@@ -106,7 +106,7 @@ const Header: React.FC = () => {
             <div className="pt-4 space-y-2 border-t mt-4">
               <Button className="w-full" onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }} variant="outline">
                 <Languages className="mr-2 h-4 w-4" />
-                {languageMode === 'bilingual' ? 'English' : 'السودان'}
+                {languageMode === 'bilingual' ? 'English' : 'عربي'}
               </Button>
             </div>
           </div>

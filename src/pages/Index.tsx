@@ -131,7 +131,20 @@ const Index: React.FC = () => {
       />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 sm:py-28 lg:py-36">
-        {/* Background Image with Blur */}
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            filter: 'blur(3px)',
+          }}
+        >
+          <source src="/Banner.mp4" type="video/mp4" />
+        </video>
+        {/* Fallback Background Image (hidden if video loads) */}
         <div 
           className="absolute inset-0 bg-no-repeat"
           style={{
@@ -139,7 +152,7 @@ const Index: React.FC = () => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             filter: 'blur(3px)',
-            transform: 'scale(1)',
+            display: 'none', // Hidden by default, can be shown via CSS if video fails
           }}
         />
         {/* Dark Overlay for Text Readability */}
@@ -212,7 +225,7 @@ const Index: React.FC = () => {
             badge="Who We Are"
             title="Your Trusted Bridge Between Sudan & India"
             subtitle="SudInd Smart Portal is an integrated digital platform that bridges the gap between Sudan and India, facilitating seamless connections for medical treatments, academic admissions, and professional services."
-            titleClassName="font-playfair"
+            titleClassName="font-sans"
           />
           
           <div className="grid gap-8 md:grid-cols-3">

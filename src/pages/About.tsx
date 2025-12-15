@@ -162,53 +162,62 @@ const About: React.FC = () => {
             </div>
             
             <div className="space-y-6">
-              {/* Sudan Headquarters */}
+              {/* Sudan Headquarters - Khartoum */}
               <Card className="hover-lift overflow-hidden">
-                <div className="grid md:grid-cols-2 gap-0">
-                  <div className="relative h-48 md:h-full min-h-[200px]">
-                    <img 
-                      src="/khardoum.png" 
-                      alt="Khartoum, Capital of Sudan" 
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      {showSudanese && <h3 className="font-semibold text-white text-lg">الخرطوم</h3>}
-                      <p className="text-sm text-white/90">Khartoum - Sudan Headquarters</p>
-                    </div>
-                  </div>
-                  <div className="relative h-48 md:h-full min-h-[200px]">
-                    <img 
-                      src="/portcitysudan.png" 
-                      alt="Sudan Port City" 
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      {showSudanese && <h3 className="font-semibold text-white text-lg">ميناء السودان</h3>}
-                      <p className="text-sm text-white/90">Port Sudan City (Airport Dist) - Operations</p>
+                <div className="relative h-64 md:h-80">
+                  <img 
+                    src="/khardoum.png" 
+                    alt="Khartoum, Capital of Sudan" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    {showSudanese && <h3 className="font-semibold text-white text-xl mb-1">الخرطوم</h3>}
+                    <p className="text-sm text-white/90 mb-2">Khartoum</p>
+                    <div className="flex items-center gap-2 mt-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 backdrop-blur-sm">
+                        <MapPin className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-white">Sudan Headquarters</p>
+                        <p className="text-xs text-white/80">Khartoum, Sudan</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <CardContent className="p-6 bg-card">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Sudan Headquarters</h3>
-                      <p className="text-sm text-muted-foreground">Centralized administration and client coordination</p>
-                    </div>
-                  </div>
-                </CardContent>
               </Card>
 
-              {/* India Operations */}
+              {/* Port Sudan - Sudan Operations */}
+              <Card className="hover-lift overflow-hidden">
+                <div className="relative h-64 md:h-80">
+                  <img 
+                    src="/portcitysudan.png" 
+                    alt="Port Sudan, Sudan" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    {showSudanese && <h3 className="font-semibold text-white text-xl mb-1">ميناء السودان</h3>}
+                    <p className="text-sm text-white/90 mb-2">Port Sudan</p>
+                    <div className="flex items-center gap-2 mt-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 backdrop-blur-sm">
+                        <MapPin className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-white">Port Sudan - Sudan Operations</p>
+                        <p className="text-xs text-white/80">Sudan</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* India Operations - Chennai */}
               <Card className="hover-lift overflow-hidden">
                 <div className="relative h-64 md:h-80">
                   <img 
                     src="/chennai.png" 
-                    alt="Chennai Central Railway Station" 
+                    alt="Chennai, India" 
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
